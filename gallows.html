@@ -25,19 +25,19 @@
             placeholder="Palavra secreta" autofocus>
         </div>
 
-        <button id="spt">insere sprite</button>
     </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/sprite.js"></script>
     <script src="js/jogo.js"></script>
+    <script src="js/controller.js"></script>
     <script>
 
             var sprite = createSprite('.sprite'); 
 
             var jogo = criaJogo(sprite); 
 
-       
+            criaController(jogo).inicia();
 
     </script>
 </body>

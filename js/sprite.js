@@ -1,40 +1,34 @@
-var createSprite = function(seletor){
+const createSprite = (seletor) => {
  
-    var $el = $(seletor);
+    let $el = $(seletor);
  
-    var frames = [ 'frame1','frame2','frame3','frame4','frame5','frame6','frame7','frame8','frame9' ];
+    const frames = [ 'frame1','frame2','frame3','frame4','frame5','frame6','frame7','frame8','frame9' ];
  
-    var fEmUso = 0;
+    let fEmUso = 0;
  
-    var fFinal = frames.length - 1;
+    let fFinal = frames.length - 1;
   
     
     $el.addClass(frames[fEmUso]);
     
   
     
-    var temProx = function(){
-              
-        return fEmUso + 1 <= fFinal;
-    
-    };
+    const temProx = () =>  fEmUso + 1 <= fFinal;
 
-    var moverPara = function(de,para){
-        $el.removeClass(de).addClass(para);
-    };
+    const moverPara = (de,para) => $el.removeClass(de).addClass(para);
 
-    var nextFrame = function (){
+    const nextFrame = () => {
         if(temProx()) moverPara(frames[fEmUso],frames[++fEmUso]);
      
     };
 
-    var reseta = function(){
+    const reseta = () => {
         moverPara(frames[fEmUso],frames[0]); 
         fEmUso = 0;
         
     };
 
-    var finalizou = function(){
+    const finalizou = ()=>{
 
         if(!temProx()){
             return true;
@@ -44,8 +38,8 @@ var createSprite = function(seletor){
     };
 
     return {
-        nextFrame: nextFrame,
-        reseta: reseta,
-        finalizou: finalizou
+        nextFrame,
+        reseta,
+        finalizou
     };
  };
